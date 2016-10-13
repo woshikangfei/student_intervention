@@ -11783,10 +11783,13 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>答案: 
-I think it should be a classification task, because the problem of the output is discrete, and sample data are discrete.
-The classification problem, the output not only allowed to take two values, allows multiple values, it is discrete; 
-In regression problems, output may take any real Numbers, is continuous.</strong></p>
+<p>**答案:</p>
+<ul>
+<li>I think it should be a classification task, because the problem of the output is discrete, and sample data are discrete.</li>
+<li>The classification problem, the output not only allowed to take two values, allows multiple values, it is discrete; </li>
+<li>In regression problems, output may take any real Numbers, is continuous.</li>
+</ul>
+<p>**</p>
 
 </div>
 </div>
@@ -11855,7 +11858,7 @@ In regression problems, output may take any real Numbers, is continuous.</strong
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span> 
@@ -11924,7 +11927,7 @@ Graduation rate of the class: 67.09%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 提取特征列</span>
@@ -12006,7 +12009,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12077,7 +12080,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：在这里导入你可能需要使用的另外的功能</span>
@@ -12095,7 +12098,7 @@ Feature values:
 <span class="c1">#y_test = None</span>
 
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-<span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">X_all</span><span class="p">,</span> <span class="n">y_all</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.24</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
 <span class="c1"># 显示分割的结果</span>
 <span class="k">print</span> <span class="s2">&quot;Training set has {} samples.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -12112,8 +12115,8 @@ Feature values:
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Training set has 296 samples.
-Testing set has 99 samples.
+<pre>Training set has 300 samples.
+Testing set has 95 samples.
 </pre>
 </div>
 </div>
@@ -12163,65 +12166,89 @@ Testing set has 99 samples.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>**回答:
-决策树模型
-决策树的优点：
-一、           决策树易于理解和解释.人们在通过解释后都有能力去理解决策树所表达的意义。
-二、           对于决策树，数据的准备往往是简单或者是不必要的.其他的技术往往要求先把数据一般化，比如去掉多余的或者空白的属性。
-三、           能够同时处理数据型和常规型属性。其他的技术往往要求数据属性的单一。
-四、           决策树是一个白盒模型。如果给定一个观察的模型，那么根据所产生的决策树很容易推出相应的逻辑表达式。
-五、           易于通过静态测试来对模型进行评测。表示有可能测量该模型的可信度。
-六、          在相对短的时间内能够对大型数据源做出可行且效果良好的结果。
-七、           可以对有许多属性的数据集构造决策树。
-八、           决策树可很好地扩展到大型数据库中，同时它的大小独立于数据库的大小。
-九、        计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据。
-决策树的缺点：
-一、           对于那些各类别样本数量不一致的数据，在决策树当中,信息增益的结果偏向于那些具有更多数值的特征。
-二、           决策树处理缺失数据时的困难。
-三、           过度拟合问题的出现。
-四、           忽略数据集中属性之间的相关性。</p>
-<p>他什么情况下表现最好？
-1) 实例是由“属性-值”对(pair)表示的。最简单的决策树学习中,每一个属性取少数的分离的值(例如,Hot、Mild、Cold)。
-2) 目标函数具有离散的输出值。
-3) 可能需要析取的描述，如上面指出的，决策树很自然地代表了析取表达式。
-4) 训练数据可以包含错误。决策树学习对错误有很好的适应性，无论是训练样例所属的分类错误还是描述这些样例的属性值错误。
-5) 训练数据可以包含缺少属性值的实例。</p>
-<p>什么条件下它表现很差？
-决策树匹配实验数据可能太多时候(过度匹配)表现很差。为了减少过度匹配问题，我们可以裁剪决策树，去掉一些不必要的叶子节点。如果叶子节点只能增加少许信息，则可以删除该节点，将它并人到其他叶子节
-点中。当类别太多时，错误可能就会增加的比较快。</p>
-<p>决策树算法在CRM中的应用
-<a href="http://www.cqvip.com/QK/81863X/200602/1000996946.html">http://www.cqvip.com/QK/81863X/200602/1000996946.html</a></p>
-<p>逻辑回归优缺点
-优点：
-1）预测结果是界于0和1之间的概率；
-2）可以适用于连续性和类别性自变量；
-3）容易使用和解释；
-4）计算代价不高
-缺点：
-1）对模型中自变量多重共线性较为敏感，例如两个高度相关自变量同时放入模型，可能导致较弱的一个自变量回归符号不符合预期，符号被扭转。​需要利用因子分析或者变量聚类分析等手段来选择代表性的自变量，以减少候选变量之间的相关性；
-2）预测结果呈“S”型，因此从log(odds)向概率转化的过程是非线性的，在两端随着​log(odds)值的变化，概率变化很小，边际值太小，slope太小，而中间概率的变化很大，很敏感。 导致很多区间的变量变化对目标概率的影响没有区分度，无法确定阀值。
-3）容易欠拟合，分类精度可能不高。 
-他什么情况下表现最好？
-缺失值少，低纬度下表现比较好。
-什么条件下它表现很差？
-特征数量过大时，分类器的性能就会出现下降。维数灾难</p>
-<p>真实世界的一个应用场景，多元逻辑回归在实时竞价中的应用研究
+<p>**回答:</p>
+<h2 id="&#20915;&#31574;&#26641;&#30340;&#20248;&#28857;&#65306;">&#20915;&#31574;&#26641;&#30340;&#20248;&#28857;&#65306;<a class="anchor-link" href="#&#20915;&#31574;&#26641;&#30340;&#20248;&#28857;&#65306;">&#182;</a></h2><ul>
+<li>决策树易于理解和解释.人们在通过解释后都有能力去理解决策树所表达的意义。</li>
+<li>对于决策树，数据的准备往往是简单或者是不必要的.其他的技术往往要求先把数据一般化，比如去掉多余的或者空白的属性。</li>
+<li>能够同时处理数据型和常规型属性。其他的技术往往要求数据属性的单一。</li>
+<li>决策树是一个白盒模型。如果给定一个观察的模型，那么根据所产生的决策树很容易推出相应的逻辑表达式。</li>
+<li>易于通过静态测试来对模型进行评测。表示有可能测量该模型的可信度。</li>
+<li>在相对短的时间内能够对大型数据源做出可行且效果良好的结果。</li>
+<li>可以对有许多属性的数据集构造决策树。</li>
+<li>决策树可很好地扩展到大型数据库中，同时它的大小独立于数据库的大小。</li>
+<li>计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据。</li>
+</ul>
+<h2 id="&#20915;&#31574;&#26641;&#30340;&#32570;&#28857;&#65306;">&#20915;&#31574;&#26641;&#30340;&#32570;&#28857;&#65306;<a class="anchor-link" href="#&#20915;&#31574;&#26641;&#30340;&#32570;&#28857;&#65306;">&#182;</a></h2><ul>
+<li>对于那些各类别样本数量不一致的数据，在决策树当中,信息增益的结果偏向于那些具有更多数值的特征。</li>
+<li>决策树处理缺失数据时的困难。</li>
+<li>过度拟合问题的出现。</li>
+<li>忽略数据集中属性之间的相关性。</li>
+</ul>
+<h3 id="&#20182;&#20160;&#20040;&#24773;&#20917;&#19979;&#34920;&#29616;&#26368;&#22909;&#65311;">&#20182;&#20160;&#20040;&#24773;&#20917;&#19979;&#34920;&#29616;&#26368;&#22909;&#65311;<a class="anchor-link" href="#&#20182;&#20160;&#20040;&#24773;&#20917;&#19979;&#34920;&#29616;&#26368;&#22909;&#65311;">&#182;</a></h3><ul>
+<li>实例是由“属性-值”对(pair)表示的。最简单的决策树学习中,每一个属性取少数的分离的值(例如,Hot、Mild、Cold)。</li>
+<li>目标函数具有离散的输出值。</li>
+<li>可能需要析取的描述，如上面指出的，决策树很自然地代表了析取表达式。</li>
+<li>训练数据可以包含错误。决策树学习对错误有很好的适应性，无论是训练样例所属的分类错误还是描述这些样例的属性值错误。</li>
+<li>训练数据可以包含缺少属性值的实例。</li>
+</ul>
+<h3 id="&#20160;&#20040;&#26465;&#20214;&#19979;&#23427;&#34920;&#29616;&#24456;&#24046;&#65311;">&#20160;&#20040;&#26465;&#20214;&#19979;&#23427;&#34920;&#29616;&#24456;&#24046;&#65311;<a class="anchor-link" href="#&#20160;&#20040;&#26465;&#20214;&#19979;&#23427;&#34920;&#29616;&#24456;&#24046;&#65311;">&#182;</a></h3><ul>
+<li>决策树匹配实验数据可能太多时候(过度匹配)表现很差。为了减少过度匹配问题，我们可以裁剪决策树，去掉一些不必要的叶子节点。如果叶子节点只能增加少许信息，则可以删除该节点，将它并人到其他叶子节点中。</li>
+<li>当类别太多时，错误可能就会增加的比较快。</li>
+</ul>
+<h3 id="&#30495;&#23454;&#19990;&#30028;&#30340;&#19968;&#20010;&#24212;&#29992;&#22330;&#26223;">&#30495;&#23454;&#19990;&#30028;&#30340;&#19968;&#20010;&#24212;&#29992;&#22330;&#26223;<a class="anchor-link" href="#&#30495;&#23454;&#19990;&#30028;&#30340;&#19968;&#20010;&#24212;&#29992;&#22330;&#26223;">&#182;</a></h3><p>决策树算法在CRM中的应用
+<a href="http://www.cqvip.com/QK/81863X/200602/1000996946.html">http://www.cqvip.com/QK/81863X/200602/1000996946.html</a> 
+<a href="http://www.cbcb.umd.edu/~salzberg/docs/murthy_thesis/survey/node32.html">http://www.cbcb.umd.edu/~salzberg/docs/murthy_thesis/survey/node32.html</a></p>
+<h3 id="&#20026;&#20160;&#20040;&#36825;&#20010;&#27169;&#22411;&#36866;&#21512;&#36825;&#20010;&#38382;&#39064;&#65311;">&#20026;&#20160;&#20040;&#36825;&#20010;&#27169;&#22411;&#36866;&#21512;&#36825;&#20010;&#38382;&#39064;&#65311;<a class="anchor-link" href="#&#20026;&#20160;&#20040;&#36825;&#20010;&#27169;&#22411;&#36866;&#21512;&#36825;&#20010;&#38382;&#39064;&#65311;">&#182;</a></h3><ul>
+<li>因为我们不需要准备太多的训练数据，而且不需要对数据正规化，删除空白值等处理，</li>
+<li>易于编码，</li>
+<li>我们当前的特征不是线性问题，决策树在在解决非线性问题有很好的能力</li>
+<li>预测快速，而且对应机器的性能消耗不高。</li>
+</ul>
+<h2 id="&#36923;&#36753;&#22238;&#24402;&#20248;&#20248;&#28857;&#65306;">&#36923;&#36753;&#22238;&#24402;&#20248;&#20248;&#28857;&#65306;<a class="anchor-link" href="#&#36923;&#36753;&#22238;&#24402;&#20248;&#20248;&#28857;&#65306;">&#182;</a></h2><ul>
+<li>预测结果是界于0和1之间的概率；</li>
+<li>可以适用于连续性和类别性自变量；</li>
+<li>容易使用和解释；</li>
+<li>计算代价不高</li>
+</ul>
+<h2 id="&#36923;&#36753;&#22238;&#24402;&#32570;&#28857;&#65306;">&#36923;&#36753;&#22238;&#24402;&#32570;&#28857;&#65306;<a class="anchor-link" href="#&#36923;&#36753;&#22238;&#24402;&#32570;&#28857;&#65306;">&#182;</a></h2><ul>
+<li>对模型中自变量多重共线性较为敏感，例如两个高度相关自变量同时放入模型，可能导致较弱的一个自变量回归符号不符合预期，符号被扭转。​需要利用因子分析或者变量聚类分析等手段来选择代表性的自变量，以减少候选变量之间的相关性；</li>
+<li>预测结果呈“S”型，因此从log(odds)向概率转化的过程是非线性的，在两端随着​log(odds)值的变化，概率变化很小，边际值太小，slope太小，而中间概率的变化很大，很敏感。 导致很多区间的变量变化对目标概率的影响没有区分度，无法确定阀值。</li>
+<li>容易欠拟合，分类精度可能不高。 </li>
+</ul>
+<h3 id="&#20182;&#20160;&#20040;&#24773;&#20917;&#19979;&#34920;&#29616;&#26368;&#22909;&#65311;">&#20182;&#20160;&#20040;&#24773;&#20917;&#19979;&#34920;&#29616;&#26368;&#22909;&#65311;<a class="anchor-link" href="#&#20182;&#20160;&#20040;&#24773;&#20917;&#19979;&#34920;&#29616;&#26368;&#22909;&#65311;">&#182;</a></h3><ul>
+<li>缺失值少，低纬度下表现比较好。</li>
+</ul>
+<h3 id="&#20160;&#20040;&#26465;&#20214;&#19979;&#23427;&#34920;&#29616;&#24456;&#24046;&#65311;">&#20160;&#20040;&#26465;&#20214;&#19979;&#23427;&#34920;&#29616;&#24456;&#24046;&#65311;<a class="anchor-link" href="#&#20160;&#20040;&#26465;&#20214;&#19979;&#23427;&#34920;&#29616;&#24456;&#24046;&#65311;">&#182;</a></h3><ul>
+<li>特征数量过大时，分类器的性能就会出现下降。维数灾难</li>
+</ul>
+<h3 id="&#30495;&#23454;&#19990;&#30028;&#30340;&#19968;&#20010;&#24212;&#29992;&#22330;&#26223;">&#30495;&#23454;&#19990;&#30028;&#30340;&#19968;&#20010;&#24212;&#29992;&#22330;&#26223;<a class="anchor-link" href="#&#30495;&#23454;&#19990;&#30028;&#30340;&#19968;&#20010;&#24212;&#29992;&#22330;&#26223;">&#182;</a></h3><p>多元逻辑回归在实时竞价中的应用研究
 <a href="http://xueshu.baidu.com/s?wd=paperuri%3A%285c0a6aad96e05d987f69d246a7f72ced%29&amp;filter=sc_long_sign&amp;tn=SE_xueshusource_2kduw22v&amp;sc_vurl=http%3A%2F%2Fcdmd.cnki.com.cn%2FArticle%2FCDMD-10080-1015997937.htm&amp;ie=utf-8&amp;sc_us=4138404365105974406">http://xueshu.baidu.com/s?wd=paperuri%3A%285c0a6aad96e05d987f69d246a7f72ced%29&amp;filter=sc_long_sign&amp;tn=SE_xueshusource_2kduw22v&amp;sc_vurl=http%3A%2F%2Fcdmd.cnki.com.cn%2FArticle%2FCDMD-10080-1015997937.htm&amp;ie=utf-8&amp;sc_us=4138404365105974406</a></p>
-<p>SVM的优点：
-一、           可以解决小样本情况下的机器学习问题。
-二、           可以提高泛化性能。
-三、           可以解决高维问题。
-四、           可以解决非线性问题。
-五、           可以避免神经网络结构选择和局部极小点问题。</p>
-<p>SVM的缺点：
-一、           对缺失数据敏感。
-二、           对非线性问题没有通用解决方案，必须谨慎选择Kernelfunction来处理。
-他什么情况下表现最好？
-SVM在小样本训练集上能够得到比其它算法好很多的结果。支持向量机之所以成为目前最常用，效果最好的分类器之一，在于其优秀的泛化能力，这是是因为其本身的优化目标是结构化风险最小，而不是经验风险最小，因此，通过margin的概念，得到对数据分布的结构化描述，因此减低了对数据规模和数据分布的要求。</p>
-<p>什么条件下它表现很差？
-当有大量缺失数据时候，表现很差，导致分类不准</p>
-<p>真实世界的一个应用场景，基于SVM算法学生毕业的预测
+<h3 id="&#20026;&#20160;&#20040;&#36825;&#20010;&#27169;&#22411;&#36866;&#21512;&#36825;&#20010;&#38382;&#39064;&#65311;">&#20026;&#20160;&#20040;&#36825;&#20010;&#27169;&#22411;&#36866;&#21512;&#36825;&#20010;&#38382;&#39064;&#65311;<a class="anchor-link" href="#&#20026;&#20160;&#20040;&#36825;&#20010;&#27169;&#22411;&#36866;&#21512;&#36825;&#20010;&#38382;&#39064;&#65311;">&#182;</a></h3><ul>
+<li>因为我们的数据中有许多特征，可以利用逻辑回归拟合一条</li>
+<li>模型训练不太费计算资源</li>
+<li>逻辑回归简单，并且效果也好，而且可以进行各种变种。也是一种奥卡姆剃刀原则。</li>
+</ul>
+<h2 id="SVM&#30340;&#20248;&#28857;&#65306;">SVM&#30340;&#20248;&#28857;&#65306;<a class="anchor-link" href="#SVM&#30340;&#20248;&#28857;&#65306;">&#182;</a></h2><ul>
+<li>可以解决小样本情况下的机器学习问题。</li>
+<li>可以提高泛化性能。</li>
+<li>可以解决高维问题。</li>
+<li>可以解决非线性问题。</li>
+<li>可以避免神经网络结构选择和局部极小点问题。</li>
+</ul>
+<h2 id="SVM&#30340;&#32570;&#28857;&#65306;">SVM&#30340;&#32570;&#28857;&#65306;<a class="anchor-link" href="#SVM&#30340;&#32570;&#28857;&#65306;">&#182;</a></h2><ul>
+<li>对缺失数据敏感。</li>
+<li>对非线性问题没有通用解决方案，必须谨慎选择Kernelfunction来处理。</li>
+</ul>
+<h3 id="&#20182;&#20160;&#20040;&#24773;&#20917;&#19979;&#34920;&#29616;&#26368;&#22909;&#65311;">&#20182;&#20160;&#20040;&#24773;&#20917;&#19979;&#34920;&#29616;&#26368;&#22909;&#65311;<a class="anchor-link" href="#&#20182;&#20160;&#20040;&#24773;&#20917;&#19979;&#34920;&#29616;&#26368;&#22909;&#65311;">&#182;</a></h3><p>SVM在小样本训练集上能够得到比其它算法好很多的结果。支持向量机之所以成为目前最常用，效果最好的分类器之一，在于其优秀的泛化能力，这是是因为其本身的优化目标是结构化风险最小，而不是经验风险最小，因此，通过margin的概念，得到对数据分布的结构化描述，因此减低了对数据规模和数据分布的要求。</p>
+<h3 id="&#20160;&#20040;&#26465;&#20214;&#19979;&#23427;&#34920;&#29616;&#24456;&#24046;&#65311;">&#20160;&#20040;&#26465;&#20214;&#19979;&#23427;&#34920;&#29616;&#24456;&#24046;&#65311;<a class="anchor-link" href="#&#20160;&#20040;&#26465;&#20214;&#19979;&#23427;&#34920;&#29616;&#24456;&#24046;&#65311;">&#182;</a></h3><p>当有大量缺失数据时候，表现很差，导致分类不准
+允许支持向量机在高纬度下对系统要求高，消耗资源</p>
+<h4 id="&#30495;&#23454;&#19990;&#30028;&#30340;&#19968;&#20010;&#24212;&#29992;&#22330;&#26223;">&#30495;&#23454;&#19990;&#30028;&#30340;&#19968;&#20010;&#24212;&#29992;&#22330;&#26223;<a class="anchor-link" href="#&#30495;&#23454;&#19990;&#30028;&#30340;&#19968;&#20010;&#24212;&#29992;&#22330;&#26223;">&#182;</a></h4><p>基于SVM算法学生毕业的预测
 引用地址：<a href="http://d.wanfangdata.com.cn/Periodical/fjdn201211051">http://d.wanfangdata.com.cn/Periodical/fjdn201211051</a></p>
+<h3 id="&#20026;&#20160;&#20040;&#36825;&#20010;&#27169;&#22411;&#36866;&#21512;&#36825;&#20010;&#38382;&#39064;&#65311;">&#20026;&#20160;&#20040;&#36825;&#20010;&#27169;&#22411;&#36866;&#21512;&#36825;&#20010;&#38382;&#39064;&#65311;<a class="anchor-link" href="#&#20026;&#20160;&#20040;&#36825;&#20010;&#27169;&#22411;&#36866;&#21512;&#36825;&#20010;&#38382;&#39064;&#65311;">&#182;</a></h3><ul>
+<li>因为我们的数据中样本比较少，SVM可以解决小样本情况下的机器学习问题</li>
+<li>我们的特征值不是线性问题，适合SVM解决</li>
+<li>SVM可以指定不同的核函数做决策函数，可以提高分类准确度。</li>
+</ul>
 <p>**</p>
 
 </div>
@@ -12247,7 +12274,7 @@ SVM在小样本训练集上能够得到比其它算法好很多的结果。支�
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12320,7 +12347,7 @@ SVM在小样本训练集上能够得到比其它算法好很多的结果。支�
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：从sklearn中引入三个监督学习模型</span>
@@ -12370,61 +12397,61 @@ SVM在小样本训练集上能够得到比其它算法好很多的结果。支�
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a DecisionTreeClassifier using a training set size of 100. . .
-Trained model in 0.0140 seconds
-Made predictions in 0.0110 seconds.
-F1 score for training set: 1.0000.
+Trained model in 0.0030 seconds
 Made predictions in 0.0000 seconds.
-F1 score for test set: 0.6462.
+F1 score for training set: 1.0000.
+Made predictions in 0.0010 seconds.
+F1 score for test set: 0.6154.
 Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0010 seconds
-Made predictions in 0.0010 seconds.
+Trained model in 0.0040 seconds
+Made predictions in 0.0000 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0000 seconds.
-F1 score for test set: 0.7500.
-Training a DecisionTreeClassifier using a training set size of 296. . .
-Trained model in 0.0070 seconds
-Made predictions in 0.0010 seconds.
+F1 score for test set: 0.7424.
+Training a DecisionTreeClassifier using a training set size of 300. . .
+Trained model in 0.0020 seconds
+Made predictions in 0.0000 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0000 seconds.
-F1 score for test set: 0.6250.
+F1 score for test set: 0.6452.
 -------------
 Training a LogisticRegression using a training set size of 100. . .
-Trained model in 0.0330 seconds
-Made predictions in 0.0710 seconds.
-F1 score for training set: 0.8507.
-Made predictions in 0.0050 seconds.
-F1 score for test set: 0.7606.
+Trained model in 0.0040 seconds
+Made predictions in 0.0030 seconds.
+F1 score for training set: 0.8593.
+Made predictions in 0.0010 seconds.
+F1 score for test set: 0.7647.
 Training a LogisticRegression using a training set size of 200. . .
 Trained model in 0.0030 seconds
 Made predictions in 0.0000 seconds.
-F1 score for training set: 0.8629.
+F1 score for training set: 0.8562.
+Made predictions in 0.0000 seconds.
+F1 score for test set: 0.7914.
+Training a LogisticRegression using a training set size of 300. . .
+Trained model in 0.0030 seconds
+Made predictions in 0.0000 seconds.
+F1 score for training set: 0.8468.
 Made predictions in 0.0010 seconds.
-F1 score for test set: 0.8056.
-Training a LogisticRegression using a training set size of 296. . .
-Trained model in 0.0070 seconds
-Made predictions in 0.0010 seconds.
-F1 score for training set: 0.8474.
-Made predictions in 0.0080 seconds.
-F1 score for test set: 0.7917.
+F1 score for test set: 0.8060.
 -------------
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0060 seconds
+Trained model in 0.0020 seconds
 Made predictions in 0.0010 seconds.
-F1 score for training set: 0.8633.
+F1 score for training set: 0.8777.
 Made predictions in 0.0010 seconds.
-F1 score for test set: 0.7651.
+F1 score for test set: 0.7746.
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0070 seconds
-Made predictions in 0.0080 seconds.
-F1 score for training set: 0.8762.
+Trained model in 0.0040 seconds
+Made predictions in 0.0040 seconds.
+F1 score for training set: 0.8679.
 Made predictions in 0.0020 seconds.
-F1 score for test set: 0.7848.
-Training a SVC using a training set size of 296. . .
-Trained model in 0.0160 seconds
-Made predictions in 0.0120 seconds.
-F1 score for training set: 0.8764.
+F1 score for test set: 0.7815.
+Training a SVC using a training set size of 300. . .
+Trained model in 0.0080 seconds
 Made predictions in 0.0090 seconds.
-F1 score for test set: 0.7871.
+F1 score for training set: 0.8761.
+Made predictions in 0.0020 seconds.
+F1 score for test set: 0.7838.
 </pre>
 </div>
 </div>
@@ -12580,10 +12607,11 @@ F1 score for test set: 0.7871.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>**回答:</p>
-<p>对比上面的实验结果，我发现三个不同的分类器在时间消耗上都不算太大，在可接受范围内，所以时间因素可以不予考虑。主要考虑F1的训练分数和最终预测分数。
-观察决策树模型，发现训练模型分值1。0，称为完美，但是将训练生成的树做预测结果F1分值却很低，严重的过拟合。
-支持向量机和逻辑回归在训练阶段的F1分值都差不多，预测的结果F1分值也差不多，但逻辑回归更适用于连续性和类别性自变量，而且容易欠拟合，分类精度可能不高。 
-而且SVM有优秀的泛化能力，所以我选择SVM模型作为最佳模型。</p>
+<ul>
+<li>对比上面的实验结果，我发现三个不同的分类器在时间消耗上都不算太大，在可接受范围内，所以时间因素可以不予考虑。主要考虑F1的训练分数和最终预测分数。</li>
+<li>观察决策树模型，发现训练模型分值1。0，称为完美，但是将训练生成的树做预测结果F1分值却很低，严重的过拟合。</li>
+<li>支持向量机和逻辑回归在训练阶段的F1分值都差不多，预测的结果F1分值也差不多，但逻辑回归更适用于连续性和类别性自变量，而且容易欠拟合，分类精度可能不高,而且SVM有优秀的泛化能力，所以我选择SVM模型作为最佳模型。</li>
+</ul>
 <p>**</p>
 
 </div>
@@ -12605,17 +12633,14 @@ F1 score for test set: 0.7871.
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>**回答:</p>
-<p>支持向量机要求系统依据已知的分类知识对输入的未知模式（该模式的描述）作分析，以确定输入模式的类属，如果新来一条记录，可以根据分割的线将新记录分割到一个指定的分类。
-例如平面上有一堆数据，如果数据比较干净，我们可以用一条线将数据分成2部分，但是如果数据混在一起，用一条线段分割不开，我们就要想办法分开。
-办法就是把平面的数据映射到三维中，用一个平米分割数据。这样就把数据分割开了，这就是SVM的分类算法。</p>
-<p>假设有俩组数据，它们之间已经分隔得足够开，因此很容易就可以在图中画出一条直线将两组数据点分开。在这种情况下，这组数据被称为线性可分将数据集分隔开来的直线称为分隔超平面。在上面给出的例子中，由于数据点都在二维平面上，所以此时分隔超平面就只是一条直线。但是，如果所给的数据
-集是三维的，那么此时用来分隔数据的就是一个平面。显而易见，更高维的情况可以依此类推。
-如果数据集是1024维的，那么就需要一个1023维的某某对象来对数据进行分隔。这个1023维的某
-某对象到底应该叫什么？ n-1维呢？该对象被称为超平面，也就是分类的决策边界。
-分布在超平面一侧的所有数据都属于某个类别，而分布在另一侧的所有数据则属于另一个类别。
-我们希望找到离分隔超平面最近的点，确保它们离分隔面的距离尽可能远。这里点到分隔面的距离被称为间隔。我们希望间隔尽可能地大，这是因为如果我们犯错或者在有限数据上训练分类器的话，我们希望分类器尽可能健壮。</p>
-<p>支持向量（support.vector)就是离分隔超平面最近的那些点。接下来要试着最大化支持向量
-到分隔面的距离，需要找到此问题的优化求解方法。</p>
+<ul>
+<li><p>支持向量机要求系统依据已知的分类知识对输入的未知模式（该模式的描述）作分析，以确定输入模式的类属，如果新来一条记录，可以根据分割的线将新记录分割到一个指定的分类。例如平面上有一堆数据，如果数据比较干净，我们可以用一条线将数据分成2部分，但是如果数据混在一起，用一条线段分割不开，我们就要想办法分开。办法就是把平面的数据映射到三维中，用一个平米分割数据。这样就把数据分割开了，这就是SVM的分类算法。</p>
+</li>
+<li><p>假设有俩组数据，它们之间已经分隔得足够开，因此很容易就可以在图中画出一条直线将两组数据点分开。在这种情况下，这组数据被称为线性可分将数据集分隔开来的直线称为分隔超平面。在上面给出的例子中，由于数据点都在二维平面上，所以此时分隔超平面就只是一条直线。但是，如果所给的数据集是三维的，那么此时用来分隔数据的就是一个平面。显而易见，更高维的情况可以依此类推。如果数据集是1024维的，那么就需要一个1023维的某某对象来对数据进行分隔。这个1023维的某某对象到底应该叫什么？ n-1维呢？该对象被称为超平面，也就是分类的决策边界。分布在超平面一侧的所有数据都属于某个类别，而分布在另一侧的所有数据则属于另一个类别。我们希望找到离分隔超平面最近的点，确保它们离分隔面的距离尽可能远。这里点到分隔面的距离被称为间隔。我们希望间隔尽可能地大，这是因为如果我们犯错或者在有限数据上训练分类器的话，我们希望分类器尽可能健壮。</p>
+</li>
+<li><p>支持向量（support.vector)就是离分隔超平面最近的那些点。接下来要试着最大化支持向量到分隔面的距离，需要找到此问题的优化求解方法。</p>
+</li>
+</ul>
 <p>**</p>
 
 </div>
@@ -12647,19 +12672,28 @@ F1 score for test set: 0.7871.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: 导入 &#39;GridSearchCV&#39; 和 &#39;make_scorer&#39;</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">grid_search</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">fbeta_score</span><span class="p">,</span> <span class="n">make_scorer</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">AdaBoostClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="kn">import</span> <span class="n">StratifiedShuffleSplit</span>
 <span class="c1"># TODO：创建你希望调整的参数列表</span>
 <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:(</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;poly&#39;</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;gamma&#39;</span><span class="p">:[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">]}</span>
 
+<span class="n">ran_state</span> <span class="o">=</span> <span class="mi">201</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">AdaBoostClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">ran_state</span><span class="p">)</span>
 <span class="c1"># TODO：初始化分类器</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
 
+
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;n_estimators&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+              <span class="c1">#&#39;algorithm&#39;    : [&#39;SAMME&#39;, &#39;SAMME.R&#39;],</span>
+              <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">,</span> <span class="mf">0.60</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">]}</span>
+
+<span class="n">sss</span> <span class="o">=</span> <span class="n">StratifiedShuffleSplit</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.24</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">ran_state</span><span class="p">)</span>
 
 
 <span class="c1"># TODO：用&#39;make_scorer&#39;创建一个f1评分函数</span>
@@ -12667,7 +12701,7 @@ F1 score for test set: 0.7871.
 
 
 <span class="c1"># TODO：在分类器上使用f1_scorer作为评分函数运行网格搜索</span>
-<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">)</span>
+<span class="n">grid_obj</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">,</span><span class="n">cv</span><span class="o">=</span><span class="n">sss</span><span class="p">)</span>
 
 <span class="c1"># TODO: Fit the grid search object to the training data and find the optimal parameters</span>
 <span class="c1"># TODO：用训练集训练grid search object来寻找最佳参数</span>
@@ -12693,10 +12727,10 @@ F1 score for test set: 0.7871.
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0050 seconds.
-Tuned model has a training F1 score of 0.8475.
+<pre>Made predictions in 0.0020 seconds.
+Tuned model has a training F1 score of 0.8437.
 Made predictions in 0.0010 seconds.
-Tuned model has a testing F1 score of 0.7974.
+Tuned model has a testing F1 score of 0.8000.
 </pre>
 </div>
 </div>
@@ -12720,10 +12754,13 @@ Tuned model has a testing F1 score of 0.7974.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答: 
-最终模型的训练F1值是：0.8475
-最终模型的测试F1值是：0.7974
-这个值相比于没有调整过参数的模型准确率有所提高。提高的不太明显，</strong></p>
+<p>**回答:</p>
+<ul>
+<li>最终模型的训练F1值是：0.8437</li>
+<li>最终模型的测试F1值是：0.8000</li>
+<li>这个值相比于没有调整过参数的模型准确率有所提高。提高的不太明显，
+**</li>
+</ul>
 
 </div>
 </div>
