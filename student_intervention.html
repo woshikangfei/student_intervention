@@ -11855,10 +11855,11 @@ In regression problems, output may take any real Numbers, is continuous.</strong
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">student_data</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span> 
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">student_data</span><span class="p">)</span>
 <span class="c1"># TODO： 计算学生的数量</span>
 
 <span class="n">n_students</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;school&#39;</span><span class="p">])</span>
@@ -11876,6 +11877,7 @@ In regression problems, output may take any real Numbers, is continuous.</strong
 
 <span class="c1"># TODO： 计算通过率</span>
 <span class="n">grad_rate</span> <span class="o">=</span> <span class="n">n_passed</span><span class="o">/</span><span class="n">n_students</span>
+<span class="n">grad_rate</span><span class="o">=</span><span class="n">grad_rate</span><span class="o">*</span><span class="mi">100</span>
 
 <span class="c1"># 输出结果</span>
 <span class="k">print</span> <span class="s2">&quot;Total number of students: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n_students</span><span class="p">)</span>
@@ -11899,7 +11901,7 @@ In regression problems, output may take any real Numbers, is continuous.</strong
 Number of features: 30
 Number of students who passed: 265
 Number of students who failed: 130
-Graduation rate of the class: 0.00%
+Graduation rate of the class: 67.09%
 </pre>
 </div>
 </div>
@@ -11922,7 +11924,7 @@ Graduation rate of the class: 0.00%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># 提取特征列</span>
@@ -12004,7 +12006,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12075,7 +12077,7 @@ Feature values:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：在这里导入你可能需要使用的另外的功能</span>
@@ -12161,7 +12163,66 @@ Testing set has 99 samples.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答: </strong></p>
+<p>**回答:
+决策树模型
+决策树的优点：
+一、           决策树易于理解和解释.人们在通过解释后都有能力去理解决策树所表达的意义。
+二、           对于决策树，数据的准备往往是简单或者是不必要的.其他的技术往往要求先把数据一般化，比如去掉多余的或者空白的属性。
+三、           能够同时处理数据型和常规型属性。其他的技术往往要求数据属性的单一。
+四、           决策树是一个白盒模型。如果给定一个观察的模型，那么根据所产生的决策树很容易推出相应的逻辑表达式。
+五、           易于通过静态测试来对模型进行评测。表示有可能测量该模型的可信度。
+六、          在相对短的时间内能够对大型数据源做出可行且效果良好的结果。
+七、           可以对有许多属性的数据集构造决策树。
+八、           决策树可很好地扩展到大型数据库中，同时它的大小独立于数据库的大小。
+九、        计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据。
+决策树的缺点：
+一、           对于那些各类别样本数量不一致的数据，在决策树当中,信息增益的结果偏向于那些具有更多数值的特征。
+二、           决策树处理缺失数据时的困难。
+三、           过度拟合问题的出现。
+四、           忽略数据集中属性之间的相关性。</p>
+<p>他什么情况下表现最好？
+1) 实例是由“属性-值”对(pair)表示的。最简单的决策树学习中,每一个属性取少数的分离的值(例如,Hot、Mild、Cold)。
+2) 目标函数具有离散的输出值。
+3) 可能需要析取的描述，如上面指出的，决策树很自然地代表了析取表达式。
+4) 训练数据可以包含错误。决策树学习对错误有很好的适应性，无论是训练样例所属的分类错误还是描述这些样例的属性值错误。
+5) 训练数据可以包含缺少属性值的实例。</p>
+<p>什么条件下它表现很差？
+决策树匹配实验数据可能太多时候(过度匹配)表现很差。为了减少过度匹配问题，我们可以裁剪决策树，去掉一些不必要的叶子节点。如果叶子节点只能增加少许信息，则可以删除该节点，将它并人到其他叶子节
+点中。当类别太多时，错误可能就会增加的比较快。</p>
+<p>决策树算法在CRM中的应用
+<a href="http://www.cqvip.com/QK/81863X/200602/1000996946.html">http://www.cqvip.com/QK/81863X/200602/1000996946.html</a></p>
+<p>逻辑回归优缺点
+优点：
+1）预测结果是界于0和1之间的概率；
+2）可以适用于连续性和类别性自变量；
+3）容易使用和解释；
+4）计算代价不高
+缺点：
+1）对模型中自变量多重共线性较为敏感，例如两个高度相关自变量同时放入模型，可能导致较弱的一个自变量回归符号不符合预期，符号被扭转。​需要利用因子分析或者变量聚类分析等手段来选择代表性的自变量，以减少候选变量之间的相关性；
+2）预测结果呈“S”型，因此从log(odds)向概率转化的过程是非线性的，在两端随着​log(odds)值的变化，概率变化很小，边际值太小，slope太小，而中间概率的变化很大，很敏感。 导致很多区间的变量变化对目标概率的影响没有区分度，无法确定阀值。
+3）容易欠拟合，分类精度可能不高。 
+他什么情况下表现最好？
+缺失值少，低纬度下表现比较好。
+什么条件下它表现很差？
+特征数量过大时，分类器的性能就会出现下降。维数灾难</p>
+<p>真实世界的一个应用场景，多元逻辑回归在实时竞价中的应用研究
+<a href="http://xueshu.baidu.com/s?wd=paperuri%3A%285c0a6aad96e05d987f69d246a7f72ced%29&amp;filter=sc_long_sign&amp;tn=SE_xueshusource_2kduw22v&amp;sc_vurl=http%3A%2F%2Fcdmd.cnki.com.cn%2FArticle%2FCDMD-10080-1015997937.htm&amp;ie=utf-8&amp;sc_us=4138404365105974406">http://xueshu.baidu.com/s?wd=paperuri%3A%285c0a6aad96e05d987f69d246a7f72ced%29&amp;filter=sc_long_sign&amp;tn=SE_xueshusource_2kduw22v&amp;sc_vurl=http%3A%2F%2Fcdmd.cnki.com.cn%2FArticle%2FCDMD-10080-1015997937.htm&amp;ie=utf-8&amp;sc_us=4138404365105974406</a></p>
+<p>SVM的优点：
+一、           可以解决小样本情况下的机器学习问题。
+二、           可以提高泛化性能。
+三、           可以解决高维问题。
+四、           可以解决非线性问题。
+五、           可以避免神经网络结构选择和局部极小点问题。</p>
+<p>SVM的缺点：
+一、           对缺失数据敏感。
+二、           对非线性问题没有通用解决方案，必须谨慎选择Kernelfunction来处理。
+他什么情况下表现最好？
+SVM在小样本训练集上能够得到比其它算法好很多的结果。支持向量机之所以成为目前最常用，效果最好的分类器之一，在于其优秀的泛化能力，这是是因为其本身的优化目标是结构化风险最小，而不是经验风险最小，因此，通过margin的概念，得到对数据分布的结构化描述，因此减低了对数据规模和数据分布的要求。</p>
+<p>什么条件下它表现很差？
+当有大量缺失数据时候，表现很差，导致分类不准</p>
+<p>真实世界的一个应用场景，基于SVM算法学生毕业的预测
+引用地址：<a href="http://d.wanfangdata.com.cn/Periodical/fjdn201211051">http://d.wanfangdata.com.cn/Periodical/fjdn201211051</a></p>
+<p>**</p>
 
 </div>
 </div>
@@ -12186,7 +12247,7 @@ Testing set has 99 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12259,7 +12320,7 @@ Testing set has 99 samples.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO：从sklearn中引入三个监督学习模型</span>
@@ -12309,60 +12370,60 @@ Testing set has 99 samples.
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a DecisionTreeClassifier using a training set size of 100. . .
-Trained model in 0.0020 seconds
-Made predictions in 0.0000 seconds.
+Trained model in 0.0140 seconds
+Made predictions in 0.0110 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0000 seconds.
 F1 score for test set: 0.6462.
 Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0030 seconds
-Made predictions in 0.0000 seconds.
+Trained model in 0.0010 seconds
+Made predictions in 0.0010 seconds.
 F1 score for training set: 1.0000.
 Made predictions in 0.0000 seconds.
 F1 score for test set: 0.7500.
 Training a DecisionTreeClassifier using a training set size of 296. . .
-Trained model in 0.0040 seconds
-Made predictions in 0.0000 seconds.
-F1 score for training set: 1.0000.
+Trained model in 0.0070 seconds
 Made predictions in 0.0010 seconds.
+F1 score for training set: 1.0000.
+Made predictions in 0.0000 seconds.
 F1 score for test set: 0.6250.
 -------------
 Training a LogisticRegression using a training set size of 100. . .
-Trained model in 0.0020 seconds
-Made predictions in 0.0020 seconds.
+Trained model in 0.0330 seconds
+Made predictions in 0.0710 seconds.
 F1 score for training set: 0.8507.
-Made predictions in 0.0010 seconds.
+Made predictions in 0.0050 seconds.
 F1 score for test set: 0.7606.
 Training a LogisticRegression using a training set size of 200. . .
-Trained model in 0.0070 seconds
-Made predictions in 0.0000 seconds.
-F1 score for training set: 0.8629.
-Made predictions in 0.0000 seconds.
-F1 score for test set: 0.8056.
-Training a LogisticRegression using a training set size of 296. . .
 Trained model in 0.0030 seconds
 Made predictions in 0.0000 seconds.
+F1 score for training set: 0.8629.
+Made predictions in 0.0010 seconds.
+F1 score for test set: 0.8056.
+Training a LogisticRegression using a training set size of 296. . .
+Trained model in 0.0070 seconds
+Made predictions in 0.0010 seconds.
 F1 score for training set: 0.8474.
-Made predictions in 0.0000 seconds.
+Made predictions in 0.0080 seconds.
 F1 score for test set: 0.7917.
 -------------
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0020 seconds
+Trained model in 0.0060 seconds
 Made predictions in 0.0010 seconds.
 F1 score for training set: 0.8633.
 Made predictions in 0.0010 seconds.
 F1 score for test set: 0.7651.
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0050 seconds
-Made predictions in 0.0030 seconds.
+Trained model in 0.0070 seconds
+Made predictions in 0.0080 seconds.
 F1 score for training set: 0.8762.
 Made predictions in 0.0020 seconds.
 F1 score for test set: 0.7848.
 Training a SVC using a training set size of 296. . .
-Trained model in 0.0070 seconds
-Made predictions in 0.0060 seconds.
+Trained model in 0.0160 seconds
+Made predictions in 0.0120 seconds.
 F1 score for training set: 0.8764.
-Made predictions in 0.0020 seconds.
+Made predictions in 0.0090 seconds.
 F1 score for test set: 0.7871.
 </pre>
 </div>
@@ -12518,7 +12579,12 @@ F1 score for test set: 0.7871.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答: </strong></p>
+<p>**回答:</p>
+<p>对比上面的实验结果，我发现三个不同的分类器在时间消耗上都不算太大，在可接受范围内，所以时间因素可以不予考虑。主要考虑F1的训练分数和最终预测分数。
+观察决策树模型，发现训练模型分值1。0，称为完美，但是将训练生成的树做预测结果F1分值却很低，严重的过拟合。
+支持向量机和逻辑回归在训练阶段的F1分值都差不多，预测的结果F1分值也差不多，但逻辑回归更适用于连续性和类别性自变量，而且容易欠拟合，分类精度可能不高。 
+而且SVM有优秀的泛化能力，所以我选择SVM模型作为最佳模型。</p>
+<p>**</p>
 
 </div>
 </div>
@@ -12538,7 +12604,19 @@ F1 score for test set: 0.7871.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答: </strong></p>
+<p>**回答:</p>
+<p>支持向量机要求系统依据已知的分类知识对输入的未知模式（该模式的描述）作分析，以确定输入模式的类属，如果新来一条记录，可以根据分割的线将新记录分割到一个指定的分类。
+例如平面上有一堆数据，如果数据比较干净，我们可以用一条线将数据分成2部分，但是如果数据混在一起，用一条线段分割不开，我们就要想办法分开。
+办法就是把平面的数据映射到三维中，用一个平米分割数据。这样就把数据分割开了，这就是SVM的分类算法。</p>
+<p>假设有俩组数据，它们之间已经分隔得足够开，因此很容易就可以在图中画出一条直线将两组数据点分开。在这种情况下，这组数据被称为线性可分将数据集分隔开来的直线称为分隔超平面。在上面给出的例子中，由于数据点都在二维平面上，所以此时分隔超平面就只是一条直线。但是，如果所给的数据
+集是三维的，那么此时用来分隔数据的就是一个平面。显而易见，更高维的情况可以依此类推。
+如果数据集是1024维的，那么就需要一个1023维的某某对象来对数据进行分隔。这个1023维的某
+某对象到底应该叫什么？ n-1维呢？该对象被称为超平面，也就是分类的决策边界。
+分布在超平面一侧的所有数据都属于某个类别，而分布在另一侧的所有数据则属于另一个类别。
+我们希望找到离分隔超平面最近的点，确保它们离分隔面的距离尽可能远。这里点到分隔面的距离被称为间隔。我们希望间隔尽可能地大，这是因为如果我们犯错或者在有限数据上训练分类器的话，我们希望分类器尽可能健壮。</p>
+<p>支持向量（support.vector)就是离分隔超平面最近的那些点。接下来要试着最大化支持向量
+到分隔面的距离，需要找到此问题的优化求解方法。</p>
+<p>**</p>
 
 </div>
 </div>
@@ -12569,7 +12647,7 @@ F1 score for test set: 0.7871.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: 导入 &#39;GridSearchCV&#39; 和 &#39;make_scorer&#39;</span>
@@ -12577,25 +12655,16 @@ F1 score for test set: 0.7871.
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">fbeta_score</span><span class="p">,</span> <span class="n">make_scorer</span>
 <span class="c1"># TODO：创建你希望调整的参数列表</span>
-<span class="n">parameters</span> <span class="o">=</span>  <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)}</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;kernel&#39;</span><span class="p">:(</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="s1">&#39;rbf&#39;</span><span class="p">,</span><span class="s1">&#39;poly&#39;</span><span class="p">),</span> <span class="s1">&#39;C&#39;</span><span class="p">:[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="s1">&#39;gamma&#39;</span><span class="p">:[</span><span class="mf">0.001</span><span class="p">,</span><span class="mf">0.005</span><span class="p">,</span><span class="mf">0.001</span><span class="p">,</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">]}</span>
 
 <span class="c1"># TODO：初始化分类器</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">()</span>
 
 
-
-<span class="k">def</span> <span class="nf">performance_metric</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Calculates and returns the performance score between </span>
-<span class="sd">        true and predicted values based on the metric chosen. &quot;&quot;&quot;</span>
-    
-    <span class="c1"># TODO: Calculate the performance score between &#39;y_true&#39; and &#39;y_predict&#39;</span>
-    <span class="n">score</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span><span class="n">y_predict</span><span class="p">)</span>
-    
-    <span class="c1"># Return the score</span>
-    <span class="k">return</span> <span class="n">score</span>
 
 <span class="c1"># TODO：用&#39;make_scorer&#39;创建一个f1评分函数</span>
-<span class="n">f1_scorer</span> <span class="o">=</span>   <span class="n">make_scorer</span><span class="p">(</span><span class="n">performance_metric</span><span class="p">)</span>
+<span class="n">f1_scorer</span> <span class="o">=</span>   <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">,</span><span class="n">pos_label</span><span class="o">=</span><span class="s1">&#39;yes&#39;</span><span class="p">)</span>
+
 
 <span class="c1"># TODO：在分类器上使用f1_scorer作为评分函数运行网格搜索</span>
 <span class="n">grid_obj</span> <span class="o">=</span> <span class="n">grid_search</span><span class="o">.</span><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span><span class="n">scoring</span><span class="o">=</span><span class="n">f1_scorer</span><span class="p">)</span>
@@ -12623,81 +12692,12 @@ F1 score for test set: 0.7871.
 
 
 <div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-48-c2ceb473e103&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
-<span class="ansi-green-fg">     29</span> <span class="ansi-red-intense-fg ansi-bold"># TODO: Fit the grid search object to the training data and find the optimal parameters</span>
-<span class="ansi-green-fg">     30</span> <span class="ansi-red-intense-fg ansi-bold"># TODO：用训练集训练grid search object来寻找最佳参数</span>
-<span class="ansi-green-intense-fg ansi-bold">---&gt; 31</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>grid_obj <span class="ansi-yellow-intense-fg ansi-bold">=</span> grid_obj<span class="ansi-yellow-intense-fg ansi-bold">.</span>fit<span class="ansi-yellow-intense-fg ansi-bold">(</span>X_train<span class="ansi-yellow-intense-fg ansi-bold">,</span> y_train<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">     32</span> 
-<span class="ansi-green-fg">     33</span> <span class="ansi-red-intense-fg ansi-bold"># Get the estimator</span>
-
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda2\lib\site-packages\sklearn\grid_search.pyc</span> in <span class="ansi-cyan-fg">fit</span><span class="ansi-blue-intense-fg ansi-bold">(self, X, y)</span>
-<span class="ansi-green-fg">    802</span> 
-<span class="ansi-green-fg">    803</span>         &#34;&#34;&#34;
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 804</span><span class="ansi-yellow-intense-fg ansi-bold">         </span><span class="ansi-green-intense-fg ansi-bold">return</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_fit<span class="ansi-yellow-intense-fg ansi-bold">(</span>X<span class="ansi-yellow-intense-fg ansi-bold">,</span> y<span class="ansi-yellow-intense-fg ansi-bold">,</span> ParameterGrid<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>param_grid<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    805</span> 
-<span class="ansi-green-fg">    806</span> 
-
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda2\lib\site-packages\sklearn\grid_search.pyc</span> in <span class="ansi-cyan-fg">_fit</span><span class="ansi-blue-intense-fg ansi-bold">(self, X, y, parameter_iterable)</span>
-<span class="ansi-green-fg">    551</span>                                     self<span class="ansi-yellow-intense-fg ansi-bold">.</span>fit_params<span class="ansi-yellow-intense-fg ansi-bold">,</span> return_parameters<span class="ansi-yellow-intense-fg ansi-bold">=</span>True<span class="ansi-yellow-intense-fg ansi-bold">,</span>
-<span class="ansi-green-fg">    552</span>                                     error_score=self.error_score)
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 553</span><span class="ansi-yellow-intense-fg ansi-bold">                 </span><span class="ansi-green-intense-fg ansi-bold">for</span> parameters <span class="ansi-green-intense-fg ansi-bold">in</span> parameter_iterable
-<span class="ansi-green-fg">    554</span>                 for train, test in cv)
-<span class="ansi-green-fg">    555</span> 
-
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda2\lib\site-packages\sklearn\externals\joblib\parallel.pyc</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-intense-fg ansi-bold">(self, iterable)</span>
-<span class="ansi-green-fg">    798</span>             <span class="ansi-red-intense-fg ansi-bold"># was dispatched. In particular this covers the edge</span>
-<span class="ansi-green-fg">    799</span>             <span class="ansi-red-intense-fg ansi-bold"># case of Parallel used with an exhausted iterator.</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 800</span><span class="ansi-yellow-intense-fg ansi-bold">             </span><span class="ansi-green-intense-fg ansi-bold">while</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>dispatch_one_batch<span class="ansi-yellow-intense-fg ansi-bold">(</span>iterator<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-fg">    801</span>                 self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_iterating <span class="ansi-yellow-intense-fg ansi-bold">=</span> True
-<span class="ansi-green-fg">    802</span>             <span class="ansi-green-intense-fg ansi-bold">else</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda2\lib\site-packages\sklearn\externals\joblib\parallel.pyc</span> in <span class="ansi-cyan-fg">dispatch_one_batch</span><span class="ansi-blue-intense-fg ansi-bold">(self, iterator)</span>
-<span class="ansi-green-fg">    656</span>                 <span class="ansi-green-intense-fg ansi-bold">return</span> False
-<span class="ansi-green-fg">    657</span>             <span class="ansi-green-intense-fg ansi-bold">else</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 658</span><span class="ansi-yellow-intense-fg ansi-bold">                 </span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_dispatch<span class="ansi-yellow-intense-fg ansi-bold">(</span>tasks<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    659</span>                 <span class="ansi-green-intense-fg ansi-bold">return</span> True
-<span class="ansi-green-fg">    660</span> 
-
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda2\lib\site-packages\sklearn\externals\joblib\parallel.pyc</span> in <span class="ansi-cyan-fg">_dispatch</span><span class="ansi-blue-intense-fg ansi-bold">(self, batch)</span>
-<span class="ansi-green-fg">    564</span> 
-<span class="ansi-green-fg">    565</span>         <span class="ansi-green-intense-fg ansi-bold">if</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_pool <span class="ansi-green-intense-fg ansi-bold">is</span> None<span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 566</span><span class="ansi-yellow-intense-fg ansi-bold">             </span>job <span class="ansi-yellow-intense-fg ansi-bold">=</span> ImmediateComputeBatch<span class="ansi-yellow-intense-fg ansi-bold">(</span>batch<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    567</span>             self<span class="ansi-yellow-intense-fg ansi-bold">.</span>_jobs<span class="ansi-yellow-intense-fg ansi-bold">.</span>append<span class="ansi-yellow-intense-fg ansi-bold">(</span>job<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    568</span>             self<span class="ansi-yellow-intense-fg ansi-bold">.</span>n_dispatched_batches <span class="ansi-yellow-intense-fg ansi-bold">+=</span> <span class="ansi-cyan-intense-fg ansi-bold">1</span>
-
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda2\lib\site-packages\sklearn\externals\joblib\parallel.pyc</span> in <span class="ansi-cyan-fg">__init__</span><span class="ansi-blue-intense-fg ansi-bold">(self, batch)</span>
-<span class="ansi-green-fg">    178</span>         <span class="ansi-red-intense-fg ansi-bold"># Don&#39;t delay the application, to avoid keeping the input</span>
-<span class="ansi-green-fg">    179</span>         <span class="ansi-red-intense-fg ansi-bold"># arguments in memory</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 180</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>self<span class="ansi-yellow-intense-fg ansi-bold">.</span>results <span class="ansi-yellow-intense-fg ansi-bold">=</span> batch<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    181</span> 
-<span class="ansi-green-fg">    182</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> get<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda2\lib\site-packages\sklearn\externals\joblib\parallel.pyc</span> in <span class="ansi-cyan-fg">__call__</span><span class="ansi-blue-intense-fg ansi-bold">(self)</span>
-<span class="ansi-green-fg">     70</span> 
-<span class="ansi-green-fg">     71</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> __call__<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">---&gt; 72</span><span class="ansi-yellow-intense-fg ansi-bold">         </span><span class="ansi-green-intense-fg ansi-bold">return</span> <span class="ansi-yellow-intense-fg ansi-bold">[</span>func<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">*</span>args<span class="ansi-yellow-intense-fg ansi-bold">,</span> <span class="ansi-yellow-intense-fg ansi-bold">**</span>kwargs<span class="ansi-yellow-intense-fg ansi-bold">)</span> <span class="ansi-green-intense-fg ansi-bold">for</span> func<span class="ansi-yellow-intense-fg ansi-bold">,</span> args<span class="ansi-yellow-intense-fg ansi-bold">,</span> kwargs <span class="ansi-green-intense-fg ansi-bold">in</span> self<span class="ansi-yellow-intense-fg ansi-bold">.</span>items<span class="ansi-yellow-intense-fg ansi-bold">]</span>
-<span class="ansi-green-fg">     73</span> 
-<span class="ansi-green-fg">     74</span>     <span class="ansi-green-intense-fg ansi-bold">def</span> __len__<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">)</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>
-
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda2\lib\site-packages\sklearn\cross_validation.pyc</span> in <span class="ansi-cyan-fg">_fit_and_score</span><span class="ansi-blue-intense-fg ansi-bold">(estimator, X, y, scorer, train, test, verbose, parameters, fit_params, return_train_score, return_parameters, error_score)</span>
-<span class="ansi-green-fg">   1518</span> 
-<span class="ansi-green-fg">   1519</span>     <span class="ansi-green-intense-fg ansi-bold">if</span> parameters <span class="ansi-green-intense-fg ansi-bold">is</span> <span class="ansi-green-intense-fg ansi-bold">not</span> None<span class="ansi-yellow-intense-fg ansi-bold">:</span>
-<span class="ansi-green-intense-fg ansi-bold">-&gt; 1520</span><span class="ansi-yellow-intense-fg ansi-bold">         </span>estimator<span class="ansi-yellow-intense-fg ansi-bold">.</span>set_params<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">**</span>parameters<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">   1521</span> 
-<span class="ansi-green-fg">   1522</span>     start_time <span class="ansi-yellow-intense-fg ansi-bold">=</span> time<span class="ansi-yellow-intense-fg ansi-bold">.</span>time<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>
-
-<span class="ansi-green-intense-fg ansi-bold">C:\Anaconda2\lib\site-packages\sklearn\base.pyc</span> in <span class="ansi-cyan-fg">set_params</span><span class="ansi-blue-intense-fg ansi-bold">(self, **params)</span>
-<span class="ansi-green-fg">    268</span>                                      <span class="ansi-blue-intense-fg ansi-bold">&#39;Check the list of available parameters &#39;</span>
-<span class="ansi-green-fg">    269</span>                                      <span class="ansi-blue-intense-fg ansi-bold">&#39;with `estimator.get_params().keys()`.&#39;</span> <span class="ansi-yellow-intense-fg ansi-bold">%</span>
-<span class="ansi-green-intense-fg ansi-bold">--&gt; 270</span><span class="ansi-yellow-intense-fg ansi-bold">                                      (key, self.__class__.__name__))
-</span><span class="ansi-green-fg">    271</span>                 setattr<span class="ansi-yellow-intense-fg ansi-bold">(</span>self<span class="ansi-yellow-intense-fg ansi-bold">,</span> key<span class="ansi-yellow-intense-fg ansi-bold">,</span> value<span class="ansi-yellow-intense-fg ansi-bold">)</span>
-<span class="ansi-green-fg">    272</span>         <span class="ansi-green-intense-fg ansi-bold">return</span> self
-
-<span class="ansi-red-intense-fg ansi-bold">ValueError</span>: Invalid parameter max_depth for estimator SVC. Check the list of available parameters with `estimator.get_params().keys()`.</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Made predictions in 0.0050 seconds.
+Tuned model has a training F1 score of 0.8475.
+Made predictions in 0.0010 seconds.
+Tuned model has a testing F1 score of 0.7974.
+</pre>
 </div>
 </div>
 
@@ -12720,7 +12720,10 @@ F1 score for test set: 0.7871.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>回答: </strong></p>
+<p><strong>回答: 
+最终模型的训练F1值是：0.8475
+最终模型的测试F1值是：0.7974
+这个值相比于没有调整过参数的模型准确率有所提高。提高的不太明显，</strong></p>
 
 </div>
 </div>
